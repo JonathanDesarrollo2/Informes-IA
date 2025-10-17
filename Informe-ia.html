@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de la IA</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .student-info {
+            text-align: left;
+        }
+        
+        .materia {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .indice {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .indice h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .indice ul {
+            padding-left: 20px;
+        }
+        
+        .indice li {
+            margin-bottom: 8px;
+        }
+        
+        .indice a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        
+        .indice a:hover {
+            text-decoration: underline;
+        }
+        
+        section {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .volver-indice {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .volver-indice a {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .volver-indice a:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+    
+</head>
+<body>
+    <a href="index.html" class="volver-inicio">Volver al Inicio</a>
+    <div class="header">
+        <div class="student-info">
+            <p><strong>Jonathan Blanco</strong></p>
+            <p>Cédula: 30483682</p>
+        </div>
+    </div>
+    
+    <div class="materia">Inteligencia Artificial</div>
+    <h1>Fundamentos de la IA</h1>
+    
+    <div class="indice">
+        <h2>Índice</h2>
+        <ul>
+            <li><a href="#definicion">1. Definición de Inteligencia Artificial</a></li>
+            <li><a href="#tipos">2. Tipos de Sistemas de IA</a></li>
+            <li><a href="#componentes">3. Componentes Básicos de un Sistema de IA</a></li>
+            <li><a href="#aprendizaje">4. Aprendizaje Automático</a></li>
+            <li><a href="#algoritmos">5. Algoritmos Fundamentales</a></li>
+            <li><a href="#aplicaciones">6. Aplicaciones Prácticas</a></li>
+            <li><a href="#limitaciones">7. Limitaciones y Consideraciones</a></li>
+        </ul>
+    </div>
+    
+    <section id="definicion">
+        <h2>1. Definición de Inteligencia Artificial</h2>
+        <p>La Inteligencia Artificial (IA) se refiere a sistemas o máquinas que imitan la inteligencia humana para realizar tareas y pueden mejorar iterativamente a partir de la información que recopilan. Es importante destacar que estos sistemas no poseen inteligencia real, sino que ejecutan algoritmos y procesos predefinidos.</p>
+        <p>La IA no "piensa" ni "comprende" como los humanos, sino que procesa datos siguiendo patrones estadísticos y reglas establecidas por programadores.</p>
+    </section>
+    
+    <section id="tipos">
+        <h2>2. Tipos de Sistemas de IA</h2>
+        <p><strong>IA Débil (o Estrecha):</strong> Sistemas diseñados y entrenados para una tarea específica. La mayoría de las aplicaciones actuales pertenecen a esta categoría.</p>
+        <p><strong>IA Fuerte (o General):</strong> Sistemas teóricos que podrían realizar cualquier tarea intelectual que un ser humano puede hacer. Actualmente no existe.</p>
+        <p><strong>Sistemas Basados en Reglas:</strong> Funcionan mediante un conjunto de reglas predefinidas por humanos.</p>
+        <p><strong>Sistemas Basados en Aprendizaje:</strong> Utilizan algoritmos que aprenden patrones a partir de datos.</p>
+    </section>
+    
+    <section id="componentes">
+        <h2>3. Componentes Básicos de un Sistema de IA</h2>
+        <p><strong>Datos:</strong> Materia prima de cualquier sistema de IA. Pueden ser estructurados (tablas) o no estructurados (imágenes, texto).</p>
+        <p><strong>Algoritmos:</strong> Conjunto de reglas y procedimientos que el sistema sigue para procesar datos y producir resultados.</p>
+        <p><strong>Modelo:</strong> Representación matemática aprendida por el algoritmo a partir de los datos de entrenamiento.</p>
+        <p><strong>Hardware:</strong> Componentes físicos que permiten ejecutar los cálculos necesarios.</p>
+    </section>
+    
+    <section id="aprendizaje">
+        <h2>4. Aprendizaje Automático</h2>
+        <p>El aprendizaje automático (Machine Learning) es un subcampo de la IA que se centra en el desarrollo de algoritmos que permiten a los sistemas aprender y mejorar automáticamente a partir de datos, sin ser programados explícitamente para cada tarea.</p>
+        <p><strong>Aprendizaje Supervisado:</strong> El algoritmo aprende de datos etiquetados, donde cada ejemplo de entrenamiento tiene una respuesta correcta asociada.</p>
+        <p><strong>Aprendizaje No Supervisado:</strong> El algoritmo encuentra patrones en datos no etiquetados sin orientación externa.</p>
+        <p><strong>Aprendizaje por Refuerzo:</strong> El algoritmo aprende mediante prueba y error, recibiendo recompensas o castigos por sus acciones.</p>
+    </section>
+    
+    <section id="algoritmos">
+        <h2>5. Algoritmos Fundamentales</h2>
+        <p><strong>Árboles de Decisión:</strong> Modelos que toman decisiones mediante una estructura de árbol con nodos de decisión.</p>
+        <p><strong>Regresión Lineal:</strong> Algoritmo que modela la relación entre variables mediante una ecuación lineal.</p>
+        <p><strong>K-Vecinos más Cercanos (KNN):</strong> Clasifica nuevos puntos basándose en la similitud con ejemplos de entrenamiento.</p>
+        <p><strong>Redes Neuronales:</strong> Sistemas inspirados en el cerebro humano, compuestos por capas de nodos interconectados.</p>
+        <p><strong>Algoritmos de Agrupamiento:</strong> Como K-means, que agrupa datos similares sin conocer las categorías de antemano.</p>
+    </section>
+    
+    <section id="aplicaciones">
+        <h2>6. Aplicaciones Prácticas</h2>
+        <p><strong>Reconocimiento de Imágenes:</strong> Identificación de objetos, personas o escenas en fotografías.</p>
+        <p><strong>Procesamiento de Lenguaje Natural:</strong> Análisis y generación de lenguaje humano por máquinas.</p>
+        <p><strong>Sistemas de Recomendación:</strong> Sugerencias de productos, películas o contenido basadas en patrones de comportamiento.</p>
+        <p><strong>Vehículos Autónomos:</strong> Sistemas que permiten a los vehículos percibir su entorno y navegar sin intervención humana.</p>
+        <p><strong>Diagnóstico Médico:</strong> Asistencia en la identificación de enfermedades a partir de datos médicos.</p>
+    </section>
+    
+    <section id="limitaciones">
+        <h2>7. Limitaciones y Consideraciones</h2>
+        <p><strong>Sesgo en los Datos:</strong> Los sistemas de IA pueden perpetuar y amplificar sesgos presentes en los datos de entrenamiento.</p>
+        <p><strong>Falta de Comprensión Real:</strong> La IA no comprende el significado detrás de sus acciones, solo reconoce patrones estadísticos.</p>
+        <p><strong>Dependencia de Datos:</strong> La calidad de los resultados depende directamente de la calidad y cantidad de datos disponibles.</p>
+        <p><strong>Falta de Sentido Común:</strong> Los sistemas de IA carecen del conocimiento del mundo y sentido común que poseen los humanos.</p>
+        <p><strong>Transparencia:</strong> Muchos modelos complejos funcionan como "cajas negras", dificultando la comprensión de cómo llegan a sus conclusiones.</p>
+    </section>
+    
+    <div class="volver-indice">
+        <a href="#">Volver al Índice</a>
+    </div>
+    
+    <footer>
+        <p>Informe sobre Fundamentos de la Inteligencia Artificial - Jonathan Blanco</p>
+    </footer>
+</body>
+</html>
