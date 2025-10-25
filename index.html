@@ -3,107 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Índice de Informes - Jonathan Blanco</title>
+    <title>Configuración de Python y Node.js para IA</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            margin: 0;
             padding: 20px;
             color: #333;
-            background-color: #f5f7fa;
-            min-height: 100vh;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
         }
         
         .header {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
             margin-bottom: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
         }
         
         .student-info {
-            margin-bottom: 15px;
+            text-align: left;
         }
         
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+        .materia {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
         }
         
         h1 {
+            text-align: center;
             color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 2.2em;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
         }
         
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.1em;
+        .indice {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
         
-        .informes-grid {
-            display: grid;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .informe {
-            background-color: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border-left: 4px solid #3498db;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .informe:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .informe h2 {
+        .indice h2 {
             color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.4em;
+            margin-top: 0;
         }
         
-        .fecha {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 12px;
-            font-size: 0.9em;
+        .indice ul {
+            padding-left: 20px;
         }
         
-        .informe p {
-            color: #555;
-            margin-bottom: 15px;
-            line-height: 1.5;
+        .indice li {
+            margin-bottom: 8px;
         }
         
-        .btn {
-            display: inline-block;
+        .indice a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        
+        .indice a:hover {
+            text-decoration: underline;
+        }
+        
+        section {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .volver-indice {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .volver-indice a {
             background-color: #3498db;
             color: white;
-            padding: 10px 20px;
+            padding: 8px 15px;
             text-decoration: none;
             border-radius: 4px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.95em;
+            font-size: 14px;
         }
         
-        .btn:hover {
+        .volver-indice a:hover {
             background-color: #2980b9;
         }
         
@@ -113,57 +110,195 @@
             padding-top: 20px;
             border-top: 1px solid #ddd;
             color: #7f8c8d;
-            font-size: 0.9em;
+            font-size: 14px;
         }
         
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .code-block {
+            background-color: #f4f4f4;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-radius: 0 5px 5px 0;
+            overflow-x: auto;
         }
         
-        .empty-state h3 {
-            color: #7f8c8d;
-            margin-bottom: 15px;
-        }
-        
-        @media (max-width: 768px) {
-            .informes-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 1.8em;
-            }
+        .note {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 10px 15px;
+            margin: 15px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="student-info">
-                <h1>Jonathan Blanco</h1>
-                <p class="subtitle">Cédula: 30483682</p>
-            </div>
-            <h2>Índice de Informes Académicos</h2>
+    <div class="header">
+        <div class="student-info">
+            <p><strong>Jonathan Blanco</strong></p>
+            <p>Cédula: 30483682</p>
         </div>
-        
-        <div class="informes-grid">
-            <div class="informe">
-                <h2>Fundamentos de la Inteligencia Artificial</h2>
-                <p class="fecha">Publicado: 17 de octubre, 2025</p>
-                <p>Conceptos básicos sobre inteligencia artificial, sus tipos, componentes fundamentales y aplicaciones prácticas.</p>
-                <a href="Informe-ia.html" class="btn">Ver Informe Completo</a>
-            </div>
-            
-
-        </div>
-        
-        <footer>
-            <p>Jonathan Blanco - Cédula: 30483682 - Todos los derechos reservados &copy; 2024</p>
-        </footer>
     </div>
+    
+    <div class="materia">Inteligencia Artificial</div>
+    <h1>Configuración de Python y Node.js para Integración de IA</h1>
+    
+    <div class="indice">
+        <h2>Índice</h2>
+        <ul>
+            <li><a href="#introduccion">1. Introducción</a></li>
+            <li><a href="#python-config">2. Configuración de Python para IA</a></li>
+            <li><a href="#node-config">3. Configuración de Node.js para IA</a></li>
+            <li><a href="#integracion">4. Integración Python-Node.js</a></li>
+            <li><a href="#ejemplos">5. Ejemplos Prácticos</a></li>
+            <li><a href="#conclusion">6. Conclusión</a></li>
+        </ul>
+    </div>
+    
+    <section id="introduccion">
+        <h2>1. Introducción</h2>
+        <p>La implementación de soluciones de Inteligencia Artificial requiere entornos de desarrollo adecuados. Python y Node.js son dos de las plataformas más populares para desarrollar aplicaciones con IA, cada una con sus fortalezas específicas.</p>
+        <p>Python destaca por su amplio ecosistema de bibliotecas especializadas en machine learning y ciencia de datos, mientras que Node.js es ideal para construir aplicaciones web escalables que pueden integrar modelos de IA.</p>
+    </section>
+    
+    <section id="python-config">
+        <h2>2. Configuración de Python para IA</h2>
+        <p>Para trabajar con IA en Python, es recomendable seguir estos pasos:</p>
+        
+        <h3>Instalación de Python</h3>
+        <p>Descargar la última versión estable de Python desde el sitio oficial (python.org). Durante la instalación, asegurarse de marcar la opción "Add Python to PATH".</p>
+        
+        <h3>Uso de Entornos Virtuales</h3>
+        <p>Los entornos virtuales permiten aislar las dependencias de cada proyecto:</p>
+        <div class="code-block">
+            # Crear un entorno virtual<br>
+            python -m venv mi_entorno_ia<br><br>
+            
+            # Activar el entorno (Windows)<br>
+            mi_entorno_ia\Scripts\activate<br><br>
+            
+            # Activar el entorno (macOS/Linux)<br>
+            source mi_entorno_ia/bin/activate
+        </div>
+        
+        <h3>Bibliotecas Esenciales para IA</h3>
+        <p>Las bibliotecas fundamentales para IA en Python incluyen:</p>
+        <div class="code-block">
+            # Instalación de bibliotecas básicas<br>
+            pip install numpy pandas matplotlib<br><br>
+            
+            # Bibliotecas de machine learning<br>
+            pip install scikit-learn tensorflow keras<br><br>
+            
+            # Procesamiento de lenguaje natural<br>
+            pip install nltk spacy
+        </div>
+        
+        <div class="note">
+            <strong>Nota:</strong> Para proyectos que requieran alto rendimiento en cálculos numéricos, considerar la instalación de bibliotecas optimizadas como Intel MKL o OpenBLAS.
+        </div>
+    </section>
+    
+    <section id="node-config">
+        <h2>3. Configuración de Node.js para IA</h2>
+        <p>Node.js permite ejecutar JavaScript en el servidor y tiene un creciente ecosistema para IA:</p>
+        
+        <h3>Instalación de Node.js</h3>
+        <p>Descargar Node.js desde nodejs.org. Se recomienda la versión LTS (Long Term Support) para mayor estabilidad.</p>
+        
+        <h3>Gestión de Paquetes con npm</h3>
+        <p>Inicializar un proyecto y gestionar dependencias:</p>
+        <div class="code-block">
+            # Inicializar un proyecto<br>
+            npm init -y<br><br>
+            
+            # Instalar bibliotecas para IA<br>
+            npm install @tensorflow/tfjs brain.js natural
+        </div>
+        
+        <h3>Bibliotecas de IA para Node.js</h3>
+        <p>Algunas bibliotecas populares incluyen:</p>
+        <ul>
+            <li><strong>TensorFlow.js</strong>: Para machine learning en el navegador y Node.js</li>
+            <li><strong>Brain.js</strong>: Redes neuronales simples y rápidas</li>
+            <li><strong>Natural</strong>: Procesamiento de lenguaje natural</li>
+            <li><strong>Synaptic</strong>: Arquitectura de redes neuronales flexible</li>
+        </ul>
+    </section>
+    
+    <section id="integracion">
+        <h2>4. Integración Python-Node.js</h2>
+        <p>Existen varias formas de integrar Python y Node.js para aprovechar las fortalezas de ambos:</p>
+        
+        <h3>Comunicación mediante APIs REST</h3>
+        <p>Exponer modelos de Python como servicios web que Node.js puede consumir:</p>
+        <div class="code-block">
+            # Ejemplo usando Flask (Python)<br>
+            from flask import Flask, jsonify<br>
+            import joblib<br><br>
+            
+            app = Flask(__name__)<br>
+            model = joblib.load('modelo_ia.pkl')<br><br>
+            
+            @app.route('/predict', methods=['POST'])<br>
+            def predict():<br>
+            &nbsp;&nbsp;data = request.json<br>
+            &nbsp;&nbsp;prediction = model.predict([data['features']])<br>
+            &nbsp;&nbsp;return jsonify({'prediction': prediction.tolist()})
+        </div>
+        
+        <h3>Uso de child_process en Node.js</h3>
+        <p>Ejecutar scripts de Python desde Node.js:</p>
+        <div class="code-block">
+            const { spawn } = require('child_process');<br><br>
+            
+            const pythonProcess = spawn('python', ['script_ia.py']);<br><br>
+            
+            pythonProcess.stdout.on('data', (data) => {<br>
+            &nbsp;&nbsp;console.log(`Resultado: ${data}`);<br>
+            });
+        </div>
+        
+        <h3>Socket.io para Comunicación en Tiempo Real</h3>
+        <p>Para aplicaciones que requieren comunicación bidireccional en tiempo real.</p>
+    </section>
+    
+    <section id="ejemplos">
+        <h2>5. Ejemplos Prácticos</h2>
+        
+        <h3>Clasificación de Texto con Python y Node.js</h3>
+        <p>Un sistema que clasifica comentarios como positivos o negativos:</p>
+        <ul>
+            <li>Python entrena el modelo usando scikit-learn</li>
+            <li>Node.js recibe comentarios a través de una API</li>
+            <li>Node.js envía los comentarios al servicio Python para clasificación</li>
+            <li>Los resultados se devuelven al cliente</li>
+        </ul>
+        
+        <h3>Sistema de Recomendación Híbrido</h3>
+        <p>Combinando el procesamiento de datos en Python con la interfaz web en Node.js:</p>
+        <ul>
+            <li>Python procesa grandes volúmenes de datos de usuarios</li>
+            <li>Genera recomendaciones usando algoritmos de filtrado colaborativo</li>
+            <li>Node.js sirve las recomendaciones a través de una aplicación web</li>
+        </ul>
+        
+        <div class="note">
+            <strong>Para la exposición:</strong> Se puede mostrar un ejemplo simple de cómo un formulario web (Node.js) envía datos a un servicio Python que devuelve una predicción.
+        </div>
+    </section>
+    
+    <section id="conclusion">
+        <h2>6. Conclusión</h2>
+        <p>La configuración adecuada de Python y Node.js permite crear soluciones de IA robustas y escalables. Python es ideal para el desarrollo y entrenamiento de modelos, mientras que Node.js excelente para implementar estos modelos en aplicaciones web.</p>
+        <p>La integración entre ambas plataformas abre posibilidades para construir sistemas complejos que aprovechen lo mejor de cada ecosistema, facilitando el desarrollo de aplicaciones de IA accesibles y de alto rendimiento.</p>
+    </section>
+    
+    <div class="volver-indice">
+        <a href="#">Volver al Índice</a>
+    </div>
+    
+    <footer>
+        <p>Informe sobre Configuración de Python y Node.js para IA - Jonathan Blanco</p>
+    </footer>
 </body>
 </html>
