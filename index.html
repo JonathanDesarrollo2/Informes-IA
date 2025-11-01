@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuración de Python y Node.js para IA</title>
+    <title>Scikit-learn: Machine Learning en Python</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -86,6 +86,11 @@
             padding-left: 10px;
         }
         
+        h3 {
+            color: #2c3e50;
+            margin-top: 25px;
+        }
+        
         .volver-indice {
             text-align: center;
             margin-top: 30px;
@@ -121,6 +126,8 @@
             font-family: 'Courier New', monospace;
             border-radius: 0 5px 5px 0;
             overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.4;
         }
         
         .note {
@@ -128,6 +135,31 @@
             border-left: 4px solid #2196F3;
             padding: 10px 15px;
             margin: 15px 0;
+        }
+        
+        .warning {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .example-result {
+            background-color: #f0f8f0;
+            border-left: 4px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -140,154 +172,395 @@
     </div>
     
     <div class="materia">Inteligencia Artificial</div>
-    <h1>Configuración de Python y Node.js para Integración de IA</h1>
+    <h1>Scikit-learn: Biblioteca de Machine Learning en Python</h1>
     
     <div class="indice">
         <h2>Índice</h2>
         <ul>
-            <li><a href="#introduccion">1. Introducción</a></li>
-            <li><a href="#python-config">2. Configuración de Python para IA</a></li>
-            <li><a href="#node-config">3. Configuración de Node.js para IA</a></li>
-            <li><a href="#integracion">4. Integración Python-Node.js</a></li>
-            <li><a href="#ejemplos">5. Ejemplos Prácticos</a></li>
-            <li><a href="#conclusion">6. Conclusión</a></li>
+            <li><a href="#introduccion">1. Introducción a Scikit-learn</a></li>
+            <li><a href="#configuracion">2. Configuración del Entorno</a></li>
+            <li><a href="#conceptos">3. Conceptos Fundamentales</a></li>
+            <li><a href="#ejemplo-clasificacion">4. Ejemplo Práctico: Clasificación de Dígitos</a></li>
+            <li><a href="#flujo-trabajo">5. Flujo de Trabajo Estándar</a></li>
+            <li><a href="#convenciones">6. Convenciones de la API</a></li>
+            <li><a href="#conclusion">7. Conclusión</a></li>
         </ul>
     </div>
     
     <section id="introduccion">
-        <h2>1. Introducción</h2>
-        <p>La implementación de soluciones de Inteligencia Artificial requiere entornos de desarrollo adecuados. Python y Node.js son dos de las plataformas más populares para desarrollar aplicaciones con IA, cada una con sus fortalezas específicas.</p>
-        <p>Python destaca por su amplio ecosistema de bibliotecas especializadas en machine learning y ciencia de datos, mientras que Node.js es ideal para construir aplicaciones web escalables que pueden integrar modelos de IA.</p>
+        <h2>1. Introducción a Scikit-learn</h2>
+        <p>Scikit-learn (sklearn) es una de las bibliotecas más robustas y utilizadas para aprendizaje automático en Python. Proporciona un conjunto de herramientas eficientes para machine learning y modelado estadístico, incluyendo clasificación, regresión, clustering y reducción de dimensionalidad, a través de una interfaz consistente y bien documentada.</p>
+        
+        <p>Esta biblioteca, construida sobre NumPy, SciPy y Matplotlib, unifica bajo un único marco los principales algoritmos y funciones, facilitando todas las etapas de preprocesado, entrenamiento, optimización y validación de modelos predictivos.</p>
+        
+        <div class="note">
+            <strong>Características principales:</strong>
+            <ul>
+                <li>Interfaz consistente y bien documentada</li>
+                <li>Amplia gama de algoritmos de ML</li>
+                <li>Herramientas para evaluación y validación</li>
+                <li>Integración con el ecosistema científico de Python</li>
+            </ul>
+        </div>
     </section>
     
-    <section id="python-config">
-        <h2>2. Configuración de Python para IA</h2>
-        <p>Para trabajar con IA en Python, es recomendable seguir estos pasos:</p>
+    <section id="configuracion">
+        <h2>2. Configuración del Entorno</h2>
+        <p>Para comenzar a utilizar scikit-learn, es necesario tener un entorno Python configurado con las dependencias adecuadas.</p>
         
-        <h3>Instalación de Python</h3>
-        <p>Descargar la última versión estable de Python desde el sitio oficial (python.org). Durante la instalación, asegurarse de marcar la opción "Add Python to PATH".</p>
-        
-        <h3>Uso de Entornos Virtuales</h3>
-        <p>Los entornos virtuales permiten aislar las dependencias de cada proyecto:</p>
+        <h3>Instalación mediante pip</h3>
+        <p>Si ya tienes una instalación funcional de NumPy y SciPy, la forma más sencilla de instalar scikit-learn es utilizando pip:</p>
         <div class="code-block">
-            # Crear un entorno virtual<br>
-            python -m venv mi_entorno_ia<br><br>
-            
-            # Activar el entorno (Windows)<br>
-            mi_entorno_ia\Scripts\activate<br><br>
-            
-            # Activar el entorno (macOS/Linux)<br>
-            source mi_entorno_ia/bin/activate
+            pip install scikit-learn
         </div>
         
-        <h3>Bibliotecas Esenciales para IA</h3>
-        <p>Las bibliotecas fundamentales para IA en Python incluyen:</p>
+        <h3>Bibliotecas complementarias</h3>
+        <p>Para un flujo de trabajo completo de ciencia de datos, se recomiendan las siguientes bibliotecas:</p>
         <div class="code-block">
-            # Instalación de bibliotecas básicas<br>
-            pip install numpy pandas matplotlib<br><br>
+            # Tratamiento de datos
+            import numpy as np
+            import pandas as pd
             
-            # Bibliotecas de machine learning<br>
-            pip install scikit-learn tensorflow keras<br><br>
+            # Gráficos
+            import matplotlib.pyplot as plt
+            import seaborn as sns
             
-            # Procesamiento de lenguaje natural<br>
-            pip install nltk spacy
+            # Preprocesado y modelado
+            from sklearn import datasets
+            from sklearn.model_selection import train_test_split
+            from sklearn.preprocessing import StandardScaler
+            from sklearn.linear_model import LogisticRegression
+            from sklearn.svm import SVC
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.metrics import accuracy_score, classification_report
+        </div>
+    </section>
+    
+    <section id="conceptos">
+        <h2>3. Conceptos Fundamentales</h2>
+        
+        <h3>Categorías de Problemas de Aprendizaje</h3>
+        <p>Scikit-learn organiza los algoritmos según el tipo de problema:</p>
+        
+        <h4>Aprendizaje Supervisado</h4>
+        <p>Los datos vienen con atributos adicionales que queremos predecir.</p>
+        <ul>
+            <li><strong>Clasificación:</strong> Predecir categorías discretas</li>
+            <li><strong>Regresión:</strong> Predecir valores continuos</li>
+        </ul>
+        
+        <h4>Aprendizaje No Supervisado</h4>
+        <p>Los datos de entrenamiento consisten en un conjunto de vectores sin etiquetas.</p>
+        <ul>
+            <li><strong>Clustering:</strong> Agrupar datos similares</li>
+            <li><strong>Reducción de dimensionalidad:</strong> Simplificar datos manteniendo estructura</li>
+        </ul>
+        
+        <h3>Componentes Principales</h3>
+        
+        <h4>Estimadores (Estimators)</h4>
+        <p>Cualquier objeto que pueda aprender de los datos es un estimador. Todos los algoritmos de scikit-learn se implementan como clases de estimadores.</p>
+        
+        <div class="code-block">
+            # Ejemplo de creación de un estimador
+            from sklearn.ensemble import RandomForestClassifier
+            clf = RandomForestClassifier(n_estimators=100)
+        </div>
+        
+        <h4>Predictores (Predictors)</h4>
+        <p>Los predictores son estimadores que pueden hacer predicciones. Tienen un método <code>predict()</code>.</p>
+        
+        <div class="code-block">
+            # Ejemplo de predicción
+            y_pred = clf.predict(X_test)
+        </div>
+        
+        <h4>Transformadores (Transformers)</h4>
+        <p>Algunos estimadores pueden transformar los datos. Tienen un método <code>transform()</code>.</p>
+        
+        <div class="code-block">
+            # Ejemplo de transformación
+            from sklearn.preprocessing import StandardScaler
+            scaler = StandardScaler()
+            X_scaled = scaler.fit_transform(X)
+        </div>
+    </section>
+    
+    <section id="ejemplo-clasificacion">
+        <h2>4. Ejemplo Práctico: Clasificación de Dígitos</h2>
+        
+        <p>A continuación, presentamos un ejemplo completo de clasificación usando el dataset de dígitos de scikit-learn.</p>
+        
+        <h3>Carga y Exploración de Datos</h3>
+        <div class="code-block">
+            # Cargar el dataset de dígitos
+            from sklearn.datasets import load_digits
+            digits = load_digits()
+            
+            # Explorar los datos
+            print("Forma de los datos:", digits.data.shape)
+            print("Número de clases:", len(np.unique(digits.target)))
+            print("Nombres de las clases:", digits.target_names)
+        </div>
+        
+        <div class="example-result">
+            Forma de los datos: (1797, 64)<br>
+            Número de clases: 10<br>
+            Nombres de las clases: [0 1 2 3 4 5 6 7 8 9]
+        </div>
+        
+        <h3>División de Datos</h3>
+        <div class="code-block">
+            # Dividir los datos en entrenamiento y prueba
+            from sklearn.model_selection import train_test_split
+            
+            X_train, X_test, y_train, y_test = train_test_split(
+                digits.data, digits.target, 
+                test_size=0.2, 
+                random_state=42,
+                stratify=digits.target
+            )
+            
+            print(f"Entrenamiento: {X_train.shape[0]} muestras")
+            print(f"Prueba: {X_test.shape[0]} muestras")
+        </div>
+        
+        <h3>Preprocesamiento</h3>
+        <div class="code-block">
+            # Escalar los datos
+            from sklearn.preprocessing import StandardScaler
+            
+            scaler = StandardScaler()
+            X_train_scaled = scaler.fit_transform(X_train)
+            X_test_scaled = scaler.transform(X_test)
+        </div>
+        
+        <h3>Entrenamiento de Múltiples Modelos</h3>
+        <div class="code-block">
+            # Importar varios clasificadores
+            from sklearn.linear_model import LogisticRegression
+            from sklearn.svm import SVC
+            from sklearn.ensemble import RandomForestClassifier
+            from sklearn.neighbors import KNeighborsClassifier
+            
+            # Inicializar modelos
+            models = {
+                'Regresión Logística': LogisticRegression(random_state=42),
+                'SVM': SVC(random_state=42),
+                'Random Forest': RandomForestClassifier(random_state=42),
+                'K-Vecinos': KNeighborsClassifier()
+            }
+            
+            # Entrenar y evaluar cada modelo
+            from sklearn.metrics import accuracy_score
+            
+            results = {}
+            for name, model in models.items():
+                # Entrenar el modelo
+                model.fit(X_train_scaled, y_train)
+                
+                # Predecir
+                y_pred = model.predict(X_test_scaled)
+                
+                # Calcular precisión
+                accuracy = accuracy_score(y_test, y_pred)
+                results[name] = accuracy
+                print(f"{name}: {accuracy:.4f}")
+        </div>
+        
+        <div class="example-result">
+            Regresión Logística: 0.9667<br>
+            SVM: 0.9806<br>
+            Random Forest: 0.9667<br>
+            K-Vecinos: 0.9750
+        </div>
+        
+        <h3>Evaluación Detallada</h3>
+        <div class="code-block">
+            # Evaluación detallada del mejor modelo
+            best_model_name = max(results, key=results.get)
+            best_model = models[best_model_name]
+            
+            from sklearn.metrics import classification_report, confusion_matrix
+            
+            y_pred_best = best_model.predict(X_test_scaled)
+            
+            print("Mejor modelo:", best_model_name)
+            print("\nReporte de clasificación:")
+            print(classification_report(y_test, y_pred_best))
+            
+            print("\nMatriz de confusión:")
+            print(confusion_matrix(y_test, y_pred_best))
         </div>
         
         <div class="note">
-            <strong>Nota:</strong> Para proyectos que requieran alto rendimiento en cálculos numéricos, considerar la instalación de bibliotecas optimizadas como Intel MKL o OpenBLAS.
+            <strong>Análisis del resultado:</strong> En este ejemplo, el modelo SVM obtuvo la mejor precisión (98.06%), demostrando su efectividad para problemas de clasificación de imágenes simples.
         </div>
     </section>
     
-    <section id="node-config">
-        <h2>3. Configuración de Node.js para IA</h2>
-        <p>Node.js permite ejecutar JavaScript en el servidor y tiene un creciente ecosistema para IA:</p>
+    <section id="flujo-trabajo">
+        <h2>5. Flujo de Trabajo Estándar</h2>
         
-        <h3>Instalación de Node.js</h3>
-        <p>Descargar Node.js desde nodejs.org. Se recomienda la versión LTS (Long Term Support) para mayor estabilidad.</p>
+        <p>Scikit-learn sigue un flujo de trabajo consistente para todos los algoritmos:</p>
         
-        <h3>Gestión de Paquetes con npm</h3>
-        <p>Inicializar un proyecto y gestionar dependencias:</p>
+        <h3>1. Preparación de Datos</h3>
         <div class="code-block">
-            # Inicializar un proyecto<br>
-            npm init -y<br><br>
+            # Cargar y preparar datos
+            from sklearn.datasets import make_classification
+            from sklearn.model_selection import train_test_split
             
-            # Instalar bibliotecas para IA<br>
-            npm install @tensorflow/tfjs brain.js natural
+            # Generar datos de ejemplo
+            X, y = make_classification(n_samples=1000, n_features=20, 
+                                     n_classes=2, random_state=42)
+            
+            # Dividir datos
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y, test_size=0.2, random_state=42
+            )
         </div>
         
-        <h3>Bibliotecas de IA para Node.js</h3>
-        <p>Algunas bibliotecas populares incluyen:</p>
-        <ul>
-            <li><strong>TensorFlow.js</strong>: Para machine learning en el navegador y Node.js</li>
-            <li><strong>Brain.js</strong>: Redes neuronales simples y rápidas</li>
-            <li><strong>Natural</strong>: Procesamiento de lenguaje natural</li>
-            <li><strong>Synaptic</strong>: Arquitectura de redes neuronales flexible</li>
-        </ul>
+        <h3>2. Preprocesamiento</h3>
+        <div class="code-block">
+            # Escalar características
+            from sklearn.preprocessing import StandardScaler
+            
+            scaler = StandardScaler()
+            X_train_scaled = scaler.fit_transform(X_train)
+            X_test_scaled = scaler.transform(X_test)
+        </div>
+        
+        <h3>3. Entrenamiento del Modelo</h3>
+        <div class="code-block">
+            # Crear y entrenar modelo
+            from sklearn.ensemble import RandomForestClassifier
+            
+            model = RandomForestClassifier(n_estimators=100, random_state=42)
+            model.fit(X_train_scaled, y_train)
+        </div>
+        
+        <h3>4. Predicción y Evaluación</h3>
+        <div class="code-block">
+            # Hacer predicciones y evaluar
+            from sklearn.metrics import accuracy_score, classification_report
+            
+            y_pred = model.predict(X_test_scaled)
+            accuracy = accuracy_score(y_test, y_pred)
+            
+            print(f"Precisión: {accuracy:.4f}")
+            print("\nReporte detallado:")
+            print(classification_report(y_test, y_pred))
+        </div>
+        
+        <h3>5. Optimización (Opcional)</h3>
+        <div class="code-block">
+            # Búsqueda de hiperparámetros
+            from sklearn.model_selection import GridSearchCV
+            
+            param_grid = {
+                'n_estimators': [50, 100, 200],
+                'max_depth': [None, 10, 20],
+                'min_samples_split': [2, 5, 10]
+            }
+            
+            grid_search = GridSearchCV(
+                RandomForestClassifier(random_state=42),
+                param_grid,
+                cv=5,
+                scoring='accuracy'
+            )
+            
+            grid_search.fit(X_train_scaled, y_train)
+            print("Mejores parámetros:", grid_search.best_params_)
+            print("Mejor puntuación:", grid_search.best_score_)
+        </div>
     </section>
     
-    <section id="integracion">
-        <h2>4. Integración Python-Node.js</h2>
-        <p>Existen varias formas de integrar Python y Node.js para aprovechar las fortalezas de ambos:</p>
+    <section id="convenciones">
+        <h2>6. Convenciones de la API</h2>
         
-        <h3>Comunicación mediante APIs REST</h3>
-        <p>Exponer modelos de Python como servicios web que Node.js puede consumir:</p>
-        <div class="code-block">
-            # Ejemplo usando Flask (Python)<br>
-            from flask import Flask, jsonify<br>
-            import joblib<br><br>
-            
-            app = Flask(__name__)<br>
-            model = joblib.load('modelo_ia.pkl')<br><br>
-            
-            @app.route('/predict', methods=['POST'])<br>
-            def predict():<br>
-            &nbsp;&nbsp;data = request.json<br>
-            &nbsp;&nbsp;prediction = model.predict([data['features']])<br>
-            &nbsp;&nbsp;return jsonify({'prediction': prediction.tolist()})
-        </div>
+        <p>Scikit-learn sigue convenciones estrictas que facilitan su uso:</p>
         
-        <h3>Uso de child_process en Node.js</h3>
-        <p>Ejecutar scripts de Python desde Node.js:</p>
-        <div class="code-block">
-            const { spawn } = require('child_process');<br><br>
-            
-            const pythonProcess = spawn('python', ['script_ia.py']);<br><br>
-            
-            pythonProcess.stdout.on('data', (data) => {<br>
-            &nbsp;&nbsp;console.log(`Resultado: ${data}`);<br>
-            });
-        </div>
-        
-        <h3>Socket.io para Comunicación en Tiempo Real</h3>
-        <p>Para aplicaciones que requieren comunicación bidireccional en tiempo real.</p>
-    </section>
-    
-    <section id="ejemplos">
-        <h2>5. Ejemplos Prácticos</h2>
-        
-        <h3>Clasificación de Texto con Python y Node.js</h3>
-        <p>Un sistema que clasifica comentarios como positivos o negativos:</p>
+        <h3>Nomenclatura de Variables</h3>
         <ul>
-            <li>Python entrena el modelo usando scikit-learn</li>
-            <li>Node.js recibe comentarios a través de una API</li>
-            <li>Node.js envía los comentarios al servicio Python para clasificación</li>
-            <li>Los resultados se devuelven al cliente</li>
+            <li><code>X</code>: Matriz de características (mayúscula)</li>
+            <li><code>y</code>: Vector de etiquetas (minúscula)</li>
+            <li><code>estimator</code>: Cualquier objeto que pueda aprender de datos</li>
         </ul>
         
-        <h3>Sistema de Recomendación Híbrido</h3>
-        <p>Combinando el procesamiento de datos en Python con la interfaz web en Node.js:</p>
-        <ul>
-            <li>Python procesa grandes volúmenes de datos de usuarios</li>
-            <li>Genera recomendaciones usando algoritmos de filtrado colaborativo</li>
-            <li>Node.js sirve las recomendaciones a través de una aplicación web</li>
-        </ul>
-    
+        <h3>Métodos Principales</h3>
+        
+        <h4>fit(X, y)</h4>
+        <p>Aprende los parámetros del modelo a partir de los datos de entrenamiento.</p>
+        <div class="code-block">
+            model.fit(X_train, y_train)
+        </div>
+        
+        <h4>predict(X)</h4>
+        <p>Realiza predicciones para los datos proporcionados.</p>
+        <div class="code-block">
+            y_pred = model.predict(X_test)
+        </div>
+        
+        <h4>transform(X)</h4>
+        <p>Transforma los datos según lo aprendido durante el ajuste.</p>
+        <div class="code-block">
+            X_transformed = scaler.transform(X)
+        </div>
+        
+        <h4>fit_transform(X, y)</h4>
+        <p>Ajusta y transforma en un solo paso (más eficiente).</p>
+        <div class="code-block">
+            X_scaled = scaler.fit_transform(X)
+        </div>
+        
+        <h3>Pipelines</h3>
+        <p>Los pipelines permiten encadenar múltiples pasos de preprocesamiento y modelado:</p>
+        <div class="code-block">
+            from sklearn.pipeline import Pipeline
+            from sklearn.preprocessing import StandardScaler
+            from sklearn.svm import SVC
+            
+            # Crear pipeline
+            pipeline = Pipeline([
+                ('scaler', StandardScaler()),
+                ('classifier', SVC())
+            ])
+            
+            # Entrenar y predecir en un solo paso
+            pipeline.fit(X_train, y_train)
+            y_pred = pipeline.predict(X_test)
+        </div>
+        
+        <div class="note">
+            <strong>Ventaja de los pipelines:</strong> Evitan la fuga de datos (data leakage) y simplifican el código.
+        </div>
     </section>
     
     <section id="conclusion">
-        <h2>6. Conclusión</h2>
-        <p>La configuración adecuada de Python y Node.js permite crear soluciones de IA robustas y escalables. Python es ideal para el desarrollo y entrenamiento de modelos, mientras que Node.js excelente para implementar estos modelos en aplicaciones web.</p>
-        <p>La integración entre ambas plataformas abre posibilidades para construir sistemas complejos que aprovechen lo mejor de cada ecosistema, facilitando el desarrollo de aplicaciones de IA accesibles y de alto rendimiento.</p>
+        <h2>7. Conclusión</h2>
+        
+        <p>Scikit-learn representa una herramienta fundamental en el ecosistema de machine learning con Python. Su diseño consistente, documentación exhaustiva y amplia gama de algoritmos la convierten en la opción ideal tanto para principiantes como para profesionales.</p>
+        
+        <h3>Ventajas Principales</h3>
+        <ul>
+            <li><strong>API consistente:</strong> Mismos métodos para todos los algoritmos</li>
+            <li><strong>Documentación excelente:</strong> Ejemplos y referencias completas</li>
+            <li><strong>Comunidad activa:</strong> Soporte continuo y actualizaciones</li>
+            <li><strong>Integración:</strong> Funciona perfectamente con NumPy, Pandas y Matplotlib</li>
+        </ul>
+        
+        <h3>Limitaciones</h3>
+        <ul>
+            <li>No es ideal para aprendizaje profundo (mejor usar TensorFlow o PyTorch)</li>
+            <li>Limitado para datos a gran escala (mejor Spark MLlib)</li>
+            <li>Menos flexible para investigación de nuevos algoritmos</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Recomendación:</strong> Scikit-learn es perfecto para problemas tradicionales de machine learning, prototipado rápido y educación. Para problemas más complejos o datos a gran escala, considere combinarlo con otras bibliotecas especializadas.
+        </div>
+        
+        <p>El ejemplo presentado demuestra cómo scikit-learn simplifica el proceso completo de machine learning, desde la carga de datos hasta la evaluación del modelo, manteniendo un código limpio y comprensible.</p>
     </section>
     
     <div class="volver-indice">
@@ -295,7 +568,7 @@
     </div>
     
     <footer>
-        <p>Informe sobre Configuración de Python y Node.js para IA - Jonathan Blanco</p>
+        <p>Informe sobre Scikit-learn: Biblioteca de Machine Learning en Python - Jonathan Blanco</p>
     </footer>
 </body>
 </html>
