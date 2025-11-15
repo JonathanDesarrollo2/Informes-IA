@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunicación Python-Node.js para Machine Learning</title>
+    <title>Comunicación Ideal con Flask y FastAPI para IA</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -129,6 +129,77 @@
             padding: 10px 15px;
             margin: 15px 0;
         }
+        
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #f2f2f2;
+            color: #2c3e50;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .feature-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .flask-badge {
+            background-color: #000;
+            color: white;
+        }
+        
+        .fastapi-badge {
+            background-color: #009688;
+            color: white;
+        }
+        
+        .architecture-diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .architecture-box {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .arrow {
+            font-size: 20px;
+            margin: 0 10px;
+            color: #3498db;
+        }
     </style>
 </head>
 <body>
@@ -140,285 +211,428 @@
     </div>
     
     <div class="materia">Inteligencia Artificial</div>
-    <h1>Comunicación Python-Node.js para Machine Learning mediante APIs</h1>
+    <h1>Comunicación Ideal con Flask y FastAPI para IA</h1>
     
     <div class="indice">
         <h2>Índice</h2>
         <ul>
             <li><a href="#introduccion">1. Introducción</a></li>
-            <li><a href="#arquitectura">2. Arquitectura de Comunicación</a></li>
-            <li><a href="#implementacion-python">3. Implementación del Servicio Python</a></li>
-            <li><a href="#implementacion-node">4. Implementación del Cliente Node.js</a></li>
-            <li><a href="#ejemplo-practico">5. Ejemplo Práctico Completo</a></li>
-            <li><a href="#conclusion">6. Conclusión</a></li>
+            <li><a href="#comparacion">2. Comparación Flask vs FastAPI</a></li>
+            <li><a href="#arquitectura-ideal">3. Arquitectura Ideal para IA</a></li>
+            <li><a href="#implementacion-flask">4. Implementación con Flask</a></li>
+            <li><a href="#implementacion-fastapi">5. Implementación con FastAPI</a></li>
+            <li><a href="#patrones-comunicacion">6. Patrones de Comunicación</a></li>
+            <li><a href="#conclusion">7. Conclusión</a></li>
         </ul>
     </div>
     
     <section id="introduccion">
         <h2>1. Introducción</h2>
-        <p>La integración entre Python y Node.js permite aprovechar las fortalezas de ambos ecosistemas: Python con su amplio soporte para machine learning a través de bibliotecas como TensorFlow, Scikit-learn y PyTorch; y Node.js con su capacidad para construir aplicaciones web escalables y de alto rendimiento.</p>
-        <p>Las APIs REST se han convertido en el estándar para esta comunicación, permitiendo que servicios escritos en diferentes lenguajes interactúen de manera eficiente y desacoplada.</p>
-    </section>
-    
-    <section id="arquitectura">
-        <h2>2. Arquitectura de Comunicación</h2>
-        <p>La arquitectura típica para conectar Python con Node.js en el contexto de machine learning consta de los siguientes componentes:</p>
+        <p>En el desarrollo de aplicaciones de Inteligencia Artificial, la elección del framework web adecuado es crucial para garantizar un rendimiento óptimo, escalabilidad y mantenibilidad. Flask y FastAPI se han posicionado como dos de las opciones más populares en el ecosistema Python.</p>
         
-        <h3>Servicio Python (Backend de ML)</h3>
+        <p>La comunicación ideal en sistemas de IA debe considerar:</p>
         <ul>
-            <li>Expone modelos de machine learning a través de endpoints REST</li>
-            <li>Utiliza frameworks como Flask o FastAPI</li>
-            <li>Gestiona la carga y ejecución de modelos entrenados</li>
-            <li>Procesa datos de entrada y genera predicciones</li>
-        </ul>
-        
-        <h3>Cliente Node.js (Backend/Frontend)</h3>
-        <ul>
-            <li>Consume los servicios de Python mediante solicitudes HTTP</li>
-            <li>Puede ser un servidor Express.js o una aplicación frontend</li>
-            <li>Gestiona la lógica de negocio y la interacción con el usuario</li>
-            <li>Prepara y envía datos al servicio Python</li>
+            <li>Baja latencia para inferencias en tiempo real</li>
+            <li>Alto rendimiento para procesamiento de grandes volúmenes de datos</li>
+            <li>Documentación automática de APIs</li>
+            <li>Validación robusta de datos de entrada</li>
+            <li>Manejo eficiente de modelos de machine learning en memoria</li>
         </ul>
         
         <div class="note">
-            <strong>Nota:</strong> Esta arquitectura permite escalar independientemente cada componente y utilizar el lenguaje más adecuado para cada tarea.
+            <strong>Nota:</strong> La elección entre Flask y FastAPI depende del caso de uso específico, los requisitos de rendimiento y la complejidad del proyecto.
         </div>
     </section>
     
-    <section id="implementacion-python">
-        <h2>3. Implementación del Servicio Python</h2>
-        <p>Para exponer un modelo de machine learning como servicio API en Python, podemos utilizar Flask o FastAPI:</p>
+    <section id="comparacion">
+        <h2>2. Comparación Flask vs FastAPI</h2>
         
-        <h3>Instalación de Dependencias</h3>
-        <div class="code-block">
-            # Crear y activar entorno virtual<br>
-            python -m venv ml-api-env<br>
-            source ml-api-env/bin/activate  # Linux/macOS<br>
-            # ml-api-env\Scripts\activate  # Windows<br><br>
-            
-            # Instalar dependencias<br>
-            pip install flask flask-cors scikit-learn pandas numpy<br>
-            pip install tensorflow  # Si usamos modelos de deep learning
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Flask</th>
+                    <th>FastAPI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Paradigma</strong></td>
+                    <td>Microframework minimalista</td>
+                    <td>Framework moderno basado en estándares</td>
+                </tr>
+                <tr>
+                    <td><strong>Rendimiento</strong></td>
+                    <td>Bueno para cargas moderadas</td>
+                    <td>Excelente, comparable a Node.js y Go</td>
+                </tr>
+                <tr>
+                    <td><strong>Documentación Automática</strong></td>
+                    <td>Requiere extensiones externas</td>
+                    <td>Integrada (OpenAPI/Swagger)</td>
+                </tr>
+                <tr>
+                    <td><strong>Validación de Datos</strong></td>
+                    <td>Manual o con extensiones</td>
+                    <td>Automática con Pydantic</td>
+                </tr>
+                <tr>
+                    <td><strong>Async/Await</strong></td>
+                    <td>Limitado, requiere extensiones</td>
+                    <td>Soporte nativo completo</td>
+                </tr>
+                <tr>
+                    <td><strong>Curva de Aprendizaje</strong></td>
+                    <td>Suave, ideal para principiantes</td>
+                    <td>Moderada, requiere conocimiento de tipos</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecosistema</strong></td>
+                    <td>Extenso y maduro</td>
+                    <td>En crecimiento pero robusto</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h3>Casos de Uso Recomendados</h3>
+        
+        <div class="note">
+            <span class="feature-badge flask-badge">FLASK</span>
+            <strong>Ideal para:</strong> Prototipado rápido, aplicaciones simples, proyectos con requisitos mínimos, equipos con experiencia en Flask.
         </div>
         
-        <h3>Servicio Flask con Modelo de ML</h3>
+        <div class="note">
+            <span class="feature-badge fastapi-badge">FASTAPI</span>
+            <strong>Ideal para:</strong> APIs de alto rendimiento, sistemas en tiempo real, proyectos que requieren documentación automática, aplicaciones con operaciones asíncronas.
+        </div>
+    </section>
+    
+    <section id="arquitectura-ideal">
+        <h2>3. Arquitectura Ideal para IA</h2>
+        
+        <div class="architecture-diagram">
+            <div class="architecture-box">Cliente Web/Móvil</div>
+            <div class="arrow">↓</div>
+            <div class="architecture-box">API Gateway<br/><small>(Load Balancer)</small></div>
+            <div class="arrow">↓</div>
+            <div class="architecture-box">Servicio Web<br/><small>(Flask/FastAPI)</small></div>
+            <div class="arrow">↓</div>
+            <div class="architecture-box">Modelo de ML<br/><small>(En memoria/GPU)</small></div>
+        </div>
+        
+        <h3>Componentes Esenciales</h3>
+        
+        <h4>1. Carga y Gestión de Modelos</h4>
+        <p>Los modelos de ML deben cargarse una vez al iniciar la aplicación y reutilizarse para todas las peticiones:</p>
+        <div class="code-block">
+            # Patrón singleton para gestión de modelos<br>
+            class ModelManager:<br>
+            &nbsp;&nbsp;_instance = None<br>
+            &nbsp;&nbsp;_model = None<br><br>
+            
+            &nbsp;&nbsp;def __new__(cls):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if cls._instance is None:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cls._instance = super().__new__(cls)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cls._model = load_model('modelo.h5')<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return cls._instance<br><br>
+            
+            &nbsp;&nbsp;def predict(self, data):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return self._model.predict(data)
+        </div>
+        
+        <h4>2. Procesamiento Asíncrono</h4>
+        <p>Para operaciones de larga duración, implementar colas de procesamiento:</p>
+        <div class="code-block">
+            # Ejemplo con Celery + Redis<br>
+            from celery import Celery<br><br>
+            
+            celery_app = Celery('tasks', broker='redis://localhost:6379')<br><br>
+            
+            @celery_app.task<br>
+            def procesar_prediccion_larga(datos):<br>
+            &nbsp;&nbsp;# Procesamiento intensivo<br>
+            &nbsp;&nbsp;resultado = modelo_pesado.predict(datos)<br>
+            &nbsp;&nbsp;return resultado
+        </div>
+        
+        <h4>3. Caché de Resultados</h4>
+        <p>Implementar caché para predicciones frecuentes:</p>
+        <div class="code-block">
+            from functools import lru_cache<br>
+            import hashlib<br><br>
+            
+            @lru_cache(maxsize=1000)<br>
+            def prediccion_cacheada(datos_serializados):<br>
+            &nbsp;&nbsp;datos = deserializar(datos_serializados)<br>
+            &nbsp;&nbsp;return modelo.predict(datos)<br><br>
+            
+            def hacer_prediccion(datos):<br>
+            &nbsp;&nbsp;clave_cache = hashlib.md5(str(datos).encode()).hexdigest()<br>
+            &nbsp;&nbsp;return prediccion_cacheada(clave_cache)
+        </div>
+    </section>
+    
+    <section id="implementacion-flask">
+        <h2>4. Implementación con Flask</h2>
+        
+        <h3>Estructura Básica para IA</h3>
         <div class="code-block">
             from flask import Flask, request, jsonify<br>
-            from flask_cors import CORS<br>
-            import pickle<br>
-            import pandas as pd<br><br>
+            from model_manager import ModelManager<br>
+            import numpy as np<br><br>
             
             app = Flask(__name__)<br>
-            CORS(app)  # Habilitar CORS para conexión con Node.js<br><br>
+            model_manager = ModelManager()<br><br>
             
-            # Cargar modelo entrenado<br>
-            with open('modelo_entrenado.pkl', 'rb') as file:<br>
-            &nbsp;&nbsp;model = pickle.load(file)<br><br>
+            @app.route('/health', methods=['GET'])<br>
+            def health_check():<br>
+            &nbsp;&nbsp;return jsonify({'status': 'healthy', 'model_loaded': True})<br><br>
             
             @app.route('/predict', methods=['POST'])<br>
             def predict():<br>
             &nbsp;&nbsp;try:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Obtener datos de la solicitud<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;data = request.json<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;features = data['features']<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;data = request.get_json()<br>
             &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Realizar predicción<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;prediction = model.predict([features])<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;probability = model.predict_proba([features])<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;# Validación básica<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if 'features' not in data:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'error': 'Se requieren features'}), 400<br>
             &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Devolver resultado<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;features = np.array(data['features'])<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;prediction = model_manager.predict(features)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
             &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prediction': int(prediction[0]),<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'probability': float(probability[0][1]),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prediction': prediction.tolist(),<br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'status': 'success'<br>
             &nbsp;&nbsp;&nbsp;&nbsp;})<br>
             &nbsp;&nbsp;except Exception as e:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'error': str(e), 'status': 'error'})<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'error': str(e)}), 500<br><br>
             
             if __name__ == '__main__':<br>
-            &nbsp;&nbsp;app.run(host='0.0.0.0', port=5000, debug=True)
+            &nbsp;&nbsp;app.run(host='0.0.0.0', port=5000, threaded=True)
         </div>
         
-        <h3>Servicio con FastAPI (Alternativa más moderna)</h3>
-        <div class="code-block">
-            from fastapi import FastAPI<br>
-            from pydantic import BaseModel<br>
-            import pickle<br><br>
-            
-            app = FastAPI()<br><br>
-            
-            # Modelo para validación de datos de entrada<br>
-            class PredictionRequest(BaseModel):<br>
-            &nbsp;&nbsp;features: list<br><br>
-            
-            # Cargar modelo<br>
-            with open('modelo_entrenado.pkl', 'rb') as file:<br>
-            &nbsp;&nbsp;model = pickle.load(file)<br><br>
-            
-            @app.post("/predict")<br>
-            async def predict(request: PredictionRequest):<br>
-            &nbsp;&nbsp;prediction = model.predict([request.features])<br>
-            &nbsp;&nbsp;return {"prediction": int(prediction[0])}
-        </div>
-    </section>
-    
-    <section id="implementacion-node">
-        <h2>4. Implementación del Cliente Node.js</h2>
-        <p>Desde Node.js, podemos consumir el servicio Python utilizando bibliotecas como axios o el módulo nativo fetch:</p>
+        <h3>Optimizaciones para Flask</h3>
         
-        <h3>Configuración del Proyecto Node.js</h3>
         <div class="code-block">
-            # Inicializar proyecto<br>
-            npm init -y<br><br>
+            # 1. Usar Gunicorn para producción<br>
+            # gunicorn -w 4 -b 0.0.0.0:5000 app:app<br><br>
             
-            # Instalar dependencias<br>
-            npm install express axios cors
+            # 2. Configuración de caché<br>
+            from flask_caching import Cache<br><br>
+            
+            cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})<br>
+            cache.init_app(app)<br><br>
+            
+            @app.route('/predict')<br>
+            @cache.cached(timeout=60, query_string=True)<br>
+            def predict_cached():<br>
+            &nbsp;&nbsp;# ... lógica de predicción
         </div>
         
-        <h3>Servidor Express que consume la API Python</h3>
-        <div class="code-block">
-            const express = require('express');<br>
-            const axios = require('axios');<br>
-            const cors = require('cors');<br><br>
-            
-            const app = express();<br>
-            const PORT = 3000;<br>
-            const PYTHON_API_URL = 'http://localhost:5000';<br><br>
-            
-            app.use(cors());<br>
-            app.use(express.json());<br><br>
-            
-            // Endpoint que consume el servicio Python<br>
-            app.post('/api/predict', async (req, res) => {<br>
-            &nbsp;&nbsp;try {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;const { features } = req.body;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;// Llamar al servicio Python<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;const response = await axios.post(`${PYTHON_API_URL}/predict`, {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features: features<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;// Devolver la predicción al cliente<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;res.json({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success: true,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prediction: response.data.prediction,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;probability: response.data.probability<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
-            &nbsp;&nbsp;} catch (error) {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;console.error('Error al conectar con el servicio Python:', error.message);<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;res.status(500).json({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success: false,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error: 'Error en el servicio de predicción'<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
-            &nbsp;&nbsp;}<br>
-            });<br><br>
-            
-            app.listen(PORT, () => {<br>
-            &nbsp;&nbsp;console.log(`Servidor Node.js ejecutándose en http://localhost:${PORT}`);<br>
-            });
-        </div>
-        
-        <h3>Cliente Frontend (Opcional)</h3>
-        <div class="code-block">
-            // Ejemplo con fetch desde el frontend<br>
-            async function hacerPrediccion(features) {<br>
-            &nbsp;&nbsp;try {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;const response = await fetch('http://localhost:3000/api/predict', {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method: 'POST',<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headers: {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Content-Type': 'application/json'<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify({ features })<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;const result = await response.json();<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return result;<br>
-            &nbsp;&nbsp;} catch (error) {<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;console.error('Error:', error);<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return { success: false, error: error.message };<br>
-            &nbsp;&nbsp;}<br>
-            }
+        <div class="warning">
+            <strong>Limitación:</strong> Flask procesa las peticiones de forma síncrona por defecto. Para alto rendimiento, es necesario usar workers múltiples con Gunicorn u otro WSGI server.
         </div>
     </section>
     
-    <section id="ejemplo-practico">
-        <h2>5. Ejemplo Práctico Completo</h2>
+    <section id="implementacion-fastapi">
+        <h2>5. Implementación con FastAPI</h2>
         
-        <h3>Sistema de Clasificación de Imágenes</h3>
-        <p>Implementaremos un sistema donde:</p>
-        <ul>
-            <li>Python con TensorFlow procesa y clasifica imágenes</li>
-            <li>Node.js recibe imágenes desde un frontend web</li>
-            <li>La comunicación se realiza mediante APIs REST</li>
-        </ul>
-        
-        <h3>Servicio Python (Clasificación de Imágenes)</h3>
+        <h3>Estructura con Tipado y Validación</h3>
         <div class="code-block">
-            from flask import Flask, request, jsonify<br>
-            import tensorflow as tf<br>
+            from fastapi import FastAPI, HTTPException<br>
+            from pydantic import BaseModel, conlist<br>
+            from typing import List<br>
             import numpy as np<br>
-            from PIL import Image<br>
-            import io<br>
-            import base64<br><br>
+            from model_manager import ModelManager<br><br>
             
-            app = Flask(__name__)<br>
-            <br>
-            # Cargar modelo preentrenado<br>
-            model = tf.keras.applications.MobileNetV2(weights='imagenet')<br><br>
+            app = FastAPI(<br>
+            &nbsp;&nbsp;title="API de Machine Learning",<br>
+            &nbsp;&nbsp;description="API para predicciones con modelos de ML",<br>
+            &nbsp;&nbsp;version="1.0.0"<br>
+            )<br><br>
             
-            @app.route('/classify', methods=['POST'])<br>
-            def classify_image():<br>
+            model_manager = ModelManager()<br><br>
+            
+            # Esquemas Pydantic para validación<br>
+            class PredictionRequest(BaseModel):<br>
+            &nbsp;&nbsp;features: conlist(float, min_items=1)<br>
+            &nbsp;&nbsp;model_version: str = "latest"<br><br>
+            
+            class PredictionResponse(BaseModel):<br>
+            &nbsp;&nbsp;prediction: List[float]<br>
+            &nbsp;&nbsp;confidence: float<br>
+            &nbsp;&nbsp;model_version: str<br>
+            &nbsp;&nbsp;processing_time: float<br><br>
+            
+            @app.get("/health")<br>
+            async def health_check():<br>
+            &nbsp;&nbsp;return {"status": "healthy", "model_loaded": True}<br><br>
+            
+            @app.post("/predict", response_model=PredictionResponse)<br>
+            async def predict(request: PredictionRequest):<br>
             &nbsp;&nbsp;try:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Obtener imagen codificada en base64<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;data = request.json<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;image_data = data['image'].split(',')[1]  # Remover prefijo data:image<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;image_bytes = base64.b64decode(image_data)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;start_time = time.time()<br>
             &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Procesar imagen<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;image = Image.open(io.BytesIO(image_bytes))<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;image = image.resize((224, 224))<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;image_array = np.array(image)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;image_array = tf.keras.applications.mobilenet_v2.preprocess_input(<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;image_array.reshape((1, 224, 224, 3))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;features = np.array([request.features])<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;prediction = model_manager.predict(features)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;confidence = float(np.max(prediction))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;processing_time = time.time() - start_time<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return PredictionResponse(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prediction=prediction.tolist(),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;confidence=confidence,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_version=request.model_version,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processing_time=processing_time<br>
             &nbsp;&nbsp;&nbsp;&nbsp;)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Realizar predicción<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;predictions = model.predict(image_array)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;decoded_predictions = tf.keras.applications.mobilenet_v2.decode_predictions(<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;predictions, top=3<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;)[0]<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Formatear resultados<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;results = []<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;for _, label, confidence in decoded_predictions:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;results.append({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'label': label,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'confidence': float(confidence)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'predictions': results, 'status': 'success'})<br>
             &nbsp;&nbsp;except Exception as e:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'error': str(e), 'status': 'error'})<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;raise HTTPException(status_code=500, detail=str(e))<br><br>
             
-            if __name__ == '__main__':<br>
-            &nbsp;&nbsp;app.run(host='0.0.0.0', port=5000)
+            # Endpoint asíncrono para procesamiento en lote<br>
+            @app.post("/batch-predict")<br>
+            async def batch_predict(requests: List[PredictionRequest]):<br>
+            &nbsp;&nbsp;# Procesamiento paralelo<br>
+            &nbsp;&nbsp;results = await process_batch_async(requests)<br>
+            &nbsp;&nbsp;return {"predictions": results}
+        </div>
+        
+        <h3>Ventajas de FastAPI para IA</h3>
+        
+        <div class="code-block">
+            # 1. Soporte nativo para async/await<br>
+            async def load_model_async(model_path: str):<br>
+            &nbsp;&nbsp;# Carga asíncrona de modelo pesado<br>
+            &nbsp;&nbsp;model = await asyncio.to_thread(load_heavy_model, model_path)<br>
+            &nbsp;&nbsp;return model<br><br>
+            
+            # 2. Background tasks para post-procesamiento<br>
+            from fastapi import BackgroundTasks<br><br>
+            
+            def log_prediction(prediction_data: dict):<br>
+            &nbsp;&nbsp;# Guardar en base de datos o enviar a analytics<br>
+            &nbsp;&nbsp;pass<br><br>
+            
+            @app.post("/predict-with-logging")<br>
+            async def predict_with_logging(<br>
+            &nbsp;&nbsp;request: PredictionRequest,<br>
+            &nbsp;&nbsp;background_tasks: BackgroundTasks<br>
+            &nbsp;&nbsp;):<br>
+            &nbsp;&nbsp;prediction = await make_prediction(request)<br>
+            &nbsp;&nbsp;background_tasks.add_task(log_prediction, prediction)<br>
+            &nbsp;&nbsp;return prediction
         </div>
         
         <div class="note">
-            <strong>Nota:</strong> Este ejemplo muestra cómo procesar imágenes enviadas desde Node.js, pero en producción se recomienda optimizar el manejo de archivos grandes y considerar el uso de colas de mensajería para procesamiento asíncrono.
+            <strong>Beneficio:</strong> FastAPI genera automáticamente documentación interactiva en /docs y /redoc, lo que facilita enormemente las pruebas y el consumo de la API.
+        </div>
+    </section>
+    
+    <section id="patrones-comunicacion">
+        <h2>6. Patrones de Comunicación para IA</h2>
+        
+        <h3>1. Comunicación Síncrona vs Asíncrona</h3>
+        
+        <div class="code-block">
+            # Síncrona - Para respuestas inmediatas<br>
+            @app.post("/realtime-predict")<br>
+            def realtime_predict(data: PredictionRequest):<br>
+            &nbsp;&nbsp;# Procesamiento inmediato<br>
+            &nbsp;&nbsp;result = model.predict(data.features)<br>
+            &nbsp;&nbsp;return {"prediction": result}<br><br>
+            
+            # Asíncrona - Para procesamiento largo<br>
+            @app.post("/async-predict")<br>
+            async def async_predict(data: PredictionRequest):<br>
+            &nbsp;&nbsp;# Delegar a worker asíncrono<br>
+            &nbsp;&nbsp;task_id = celery.send_task('process_prediction', args=[data.dict()])<br>
+            &nbsp;&nbsp;return {"task_id": task_id, "status": "processing"}<br><br>
+            
+            @app.get("/result/{task_id}")<br>
+            async def get_result(task_id: str):<br>
+            &nbsp;&nbsp;result = AsyncResult(task_id)<br>
+            &nbsp;&nbsp;if result.ready():<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return {"status": "completed", "result": result.get()}<br>
+            &nbsp;&nbsp;else:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return {"status": "processing"}
+        </div>
+        
+        <h3>2. Patrón de Circuit Breaker</h3>
+        <p>Para prevenir fallos en cascada cuando el modelo está sobrecargado:</p>
+        
+        <div class="code-block">
+            from circuitbreaker import circuit<br><br>
+            
+            @circuit(failure_threshold=5, expected_exception=Exception)<br>
+            def safe_prediction(features):<br>
+            &nbsp;&nbsp;# Si falla 5 veces, se abre el circuito<br>
+            &nbsp;&nbsp;return model.predict(features)<br><br>
+            
+            @app.post("/safe-predict")<br>
+            def safe_predict_endpoint(data: PredictionRequest):<br>
+            &nbsp;&nbsp;try:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;result = safe_prediction(data.features)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return {"prediction": result}<br>
+            &nbsp;&nbsp;except CircuitBreakerError:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return {"error": "Servicio temporalmente no disponible"}, 503
+        </div>
+        
+        <h3>3. Rate Limiting</h3>
+        <p>Controlar el número de peticiones por usuario/timeframe:</p>
+        
+        <div class="code-block">
+            from slowapi import Limiter, _rate_limit_exceeded_handler<br>
+            from slowapi.util import get_remote_address<br>
+            from slowapi.errors import RateLimitExceeded<br><br>
+            
+            limiter = Limiter(key_func=get_remote_address)<br>
+            app.state.limiter = limiter<br>
+            app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)<br><br>
+            
+            @app.post("/predict")<br>
+            @limiter.limit("5/minute")<br>
+            def predict_with_rate_limit(data: PredictionRequest):<br>
+            &nbsp;&nbsp;return make_prediction(data)
         </div>
     </section>
     
     <section id="conclusion">
-        <h2>6. Conclusión</h2>
-        <p>La comunicación entre Python y Node.js mediante APIs es una solución robusta y escalable para integrar capacidades de machine learning en aplicaciones web. Esta arquitectura permite:</p>
+        <h2>7. Conclusión</h2>
+        
+        <h3>Recomendaciones Finales</h3>
+        
+        <div class="note">
+            <span class="feature-badge flask-badge">FLASK</span>
+            <strong>Elige Flask cuando:</strong>
+            <ul>
+                <li>Tienes un equipo familiarizado con Flask</li>
+                <li>El proyecto es simple o un prototipo</li>
+                <li>No necesitas alto rendimiento asíncrono</li>
+                <li>Prefieres flexibilidad sobre convención</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <span class="feature-badge fastapi-badge">FASTAPI</span>
+            <strong>Elige FastAPI cuando:</strong>
+            <ul>
+                <li>Requieres máximo rendimiento</li>
+                <li>Necesitas documentación automática</li>
+                <li>Trabajas con operaciones asíncronas</li>
+                <li>Quieres validación automática de datos</li>
+                <li>Desarrollas APIs complejas con múltiples endpoints</li>
+            </ul>
+        </div>
+        
+        <h3>Mejores Prácticas Comunes</h3>
         <ul>
-            <li>Aprovechar el ecosistema de machine learning de Python sin sacrificar la escalabilidad de Node.js</li>
-            <li>Desarrollar y desplegar componentes de forma independiente</li>
-            <li>Mantener una separación clara de responsabilidades entre el procesamiento de datos y la lógica de aplicación</li>
-            <li>Facilitar el mantenimiento y la evolución del sistema</li>
+            <li><strong>Health Checks:</strong> Implementar endpoints /health para monitoreo</li>
+            <li><strong>Logging:</strong> Registrar todas las predicciones para debugging y analytics</li>
+            <li><strong>Versionado:</strong> Mantener múltiples versiones de modelos</li>
+            <li><strong>Monitorización:</strong> Implementar métricas de rendimiento y uso</li>
+            <li><strong>Seguridad:</strong> Validar entradas, implementar autenticación y rate limiting</li>
         </ul>
-        <p>Para proyectos más complejos, se pueden considerar alternativas como el uso de gRPC para comunicación más eficiente, o la implementación de colas de mensajería (Redis, RabbitMQ) para procesamiento asíncrono de tareas intensivas.</p>
+        
+        <p>La comunicación ideal en IA depende del balance entre rendimiento, complejidad y requisitos específicos del proyecto. Tanto Flask como FastAPI son opciones válidas, pero FastAPI ofrece ventajas significativas para aplicaciones modernas de machine learning en producción.</p>
     </section>
     
     <div class="volver-indice">
@@ -426,7 +640,7 @@
     </div>
     
     <footer>
-        <p>Informe sobre Comunicación Python-Node.js para Machine Learning - Jonathan Blanco</p>
+        <p>Informe sobre Comunicación Ideal con Flask y FastAPI para IA - Jonathan Blanco</p>
     </footer>
 </body>
 </html>
