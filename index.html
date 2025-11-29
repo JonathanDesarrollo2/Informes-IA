@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunicación Ideal con Flask y FastAPI para IA</title>
+    <title>Redes Neuronales MLP y LSTM</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -130,11 +130,18 @@
             margin: 15px 0;
         }
         
-        .warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 10px 15px;
-            margin: 15px 0;
+        .architecture {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .architecture-diagram {
+            text-align: center;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
         .comparison-table {
@@ -151,54 +158,6 @@
         
         .comparison-table th {
             background-color: #f2f2f2;
-            color: #2c3e50;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        
-        .feature-badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-            margin-right: 5px;
-        }
-        
-        .flask-badge {
-            background-color: #000;
-            color: white;
-        }
-        
-        .fastapi-badge {
-            background-color: #009688;
-            color: white;
-        }
-        
-        .architecture-diagram {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-        }
-        
-        .architecture-box {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .arrow {
-            font-size: 20px;
-            margin: 0 10px;
-            color: #3498db;
         }
     </style>
 </head>
@@ -211,428 +170,236 @@
     </div>
     
     <div class="materia">Inteligencia Artificial</div>
-    <h1>Comunicación Ideal con Flask y FastAPI para IA</h1>
+    <h1>Redes Neuronales MLP y LSTM</h1>
     
     <div class="indice">
         <h2>Índice</h2>
         <ul>
             <li><a href="#introduccion">1. Introducción</a></li>
-            <li><a href="#comparacion">2. Comparación Flask vs FastAPI</a></li>
-            <li><a href="#arquitectura-ideal">3. Arquitectura Ideal para IA</a></li>
-            <li><a href="#implementacion-flask">4. Implementación con Flask</a></li>
-            <li><a href="#implementacion-fastapi">5. Implementación con FastAPI</a></li>
-            <li><a href="#patrones-comunicacion">6. Patrones de Comunicación</a></li>
+            <li><a href="#mlp">2. Redes Neuronales MLP</a></li>
+            <li><a href="#lstm">3. Redes Neuronales LSTM</a></li>
+            <li><a href="#comparacion">4. Comparación MLP vs LSTM</a></li>
+            <li><a href="#aplicaciones">5. Aplicaciones Prácticas</a></li>
+            <li><a href="#implementacion">6. Implementación</a></li>
             <li><a href="#conclusion">7. Conclusión</a></li>
         </ul>
     </div>
     
     <section id="introduccion">
         <h2>1. Introducción</h2>
-        <p>En el desarrollo de aplicaciones de Inteligencia Artificial, la elección del framework web adecuado es crucial para garantizar un rendimiento óptimo, escalabilidad y mantenibilidad. Flask y FastAPI se han posicionado como dos de las opciones más populares en el ecosistema Python.</p>
+        <p>Las redes neuronales artificiales son modelos computacionales inspirados en el funcionamiento del cerebro humano. Entre los diversos tipos de redes neuronales, las redes MLP (Perceptrón Multicapa) y LSTM (Memoria a Largo Plazo) representan dos enfoques fundamentales con aplicaciones y capacidades distintivas.</p>
+        <p>Las MLP son redes neuronales feedforward simples pero potentes, ideales para problemas de clasificación y regresión estáticos. Por otro lado, las LSTM son un tipo especial de red recurrente diseñada para capturar dependencias temporales en secuencias de datos, superando las limitaciones de las RNN tradicionales.</p>
+    </section>
+    
+    <section id="mlp">
+        <h2>2. Redes Neuronales MLP</h2>
+        <p>El Perceptrón Multicapa (MLP) es una de las arquitecturas de redes neuronales más básicas y ampliamente utilizadas. Consiste en múltiples capas de neuronas conectadas en forma de grafo acíclico dirigido.</p>
         
-        <p>La comunicación ideal en sistemas de IA debe considerar:</p>
+        <h3>Arquitectura MLP</h3>
+        <div class="architecture">
+            <div class="architecture-diagram">
+                <h4>Estructura MLP</h4>
+                <p>Capa de entrada → Capas ocultas → Capa de salida</p>
+                <p>Conectividad: Feedforward completamente conectada</p>
+            </div>
+        </div>
+        
+        <h3>Características Principales</h3>
         <ul>
-            <li>Baja latencia para inferencias en tiempo real</li>
-            <li>Alto rendimiento para procesamiento de grandes volúmenes de datos</li>
-            <li>Documentación automática de APIs</li>
-            <li>Validación robusta de datos de entrada</li>
-            <li>Manejo eficiente de modelos de machine learning en memoria</li>
+            <li><strong>Capas:</strong> Entrada, una o más capas ocultas, y salida</li>
+            <li><strong>Conectividad:</strong> Totalmente conectada entre capas adyacentes</li>
+            <li><strong>Flujo de información:</strong> Unidireccional (feedforward)</li>
+            <li><strong>Funciones de activación:</strong> Sigmoide, Tanh, ReLU, etc.</li>
         </ul>
         
-        <div class="note">
-            <strong>Nota:</strong> La elección entre Flask y FastAPI depende del caso de uso específico, los requisitos de rendimiento y la complejidad del proyecto.
+        <h3>Ventajas y Limitaciones</h3>
+        <p><strong>Ventajas:</strong></p>
+        <ul>
+            <li>Fácil implementación y entrenamiento</li>
+            <li>Aproximador universal de funciones</li>
+            <li>Eficaz para problemas estáticos y no secuenciales</li>
+        </ul>
+        
+        <p><strong>Limitaciones:</strong></p>
+        <ul>
+            <li>No puede modelar dependencias temporales</li>
+            <li>No tiene memoria interna</li>
+            <li>Puede sufrir de desvanecimiento del gradiente en redes profundas</li>
+        </ul>
+    </section>
+    
+    <section id="lstm">
+        <h2>3. Redes Neuronales LSTM</h2>
+        <p>Las redes de Memoria a Largo Plazo (LSTM) son un tipo especial de Red Neuronal Recurrente (RNN) diseñadas para superar el problema del desvanecimiento del gradiente y capturar dependencias a largo plazo en datos secuenciales.</p>
+        
+        <h3>Arquitectura LSTM</h3>
+        <div class="architecture">
+            <div class="architecture-diagram">
+                <h4>Célula LSTM</h4>
+                <p>Puerta de olvido → Puerta de entrada → Puerta de salida</p>
+                <p>Estado celular: Memoria a largo plazo</p>
+            </div>
         </div>
+        
+        <h3>Componentes Clave</h3>
+        <ul>
+            <li><strong>Puerta de olvido:</strong> Decide qué información descartar del estado celular</li>
+            <li><strong>Puerta de entrada:</strong> Determina qué nueva información almacenar en el estado celular</li>
+            <li><strong>Puerta de salida:</strong> Controla qué información pasa a la siguiente capa</li>
+            <li><strong>Estado celular:</strong> Representa la memoria a largo plazo de la red</li>
+        </ul>
+        
+        <h3>Ventajas y Aplicaciones</h3>
+        <p><strong>Ventajas:</strong></p>
+        <ul>
+            <li>Capacidad de aprender dependencias a largo plazo</li>
+            <li>Resuelve el problema del desvanecimiento del gradiente</li>
+            <li>Excelente para datos secuenciales y series temporales</li>
+        </ul>
+        
+        <p><strong>Aplicaciones típicas:</strong></p>
+        <ul>
+            <li>Procesamiento de lenguaje natural</li>
+            <li>Reconocimiento de voz</li>
+            <li>Predicción de series temporales</li>
+            <li>Traducción automática</li>
+        </ul>
     </section>
     
     <section id="comparacion">
-        <h2>2. Comparación Flask vs FastAPI</h2>
+        <h2>4. Comparación MLP vs LSTM</h2>
         
         <table class="comparison-table">
             <thead>
                 <tr>
                     <th>Característica</th>
-                    <th>Flask</th>
-                    <th>FastAPI</th>
+                    <th>MLP</th>
+                    <th>LSTM</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Paradigma</strong></td>
-                    <td>Microframework minimalista</td>
-                    <td>Framework moderno basado en estándares</td>
+                    <td><strong>Tipo de red</strong></td>
+                    <td>Feedforward</td>
+                    <td>Recurrente</td>
                 </tr>
                 <tr>
-                    <td><strong>Rendimiento</strong></td>
-                    <td>Bueno para cargas moderadas</td>
-                    <td>Excelente, comparable a Node.js y Go</td>
+                    <td><strong>Memoria interna</strong></td>
+                    <td>No</td>
+                    <td>Sí</td>
                 </tr>
                 <tr>
-                    <td><strong>Documentación Automática</strong></td>
-                    <td>Requiere extensiones externas</td>
-                    <td>Integrada (OpenAPI/Swagger)</td>
+                    <td><strong>Datos de entrada</strong></td>
+                    <td>Estáticos (vectores fijos)</td>
+                    <td>Secuenciales (series temporales)</td>
                 </tr>
                 <tr>
-                    <td><strong>Validación de Datos</strong></td>
-                    <td>Manual o con extensiones</td>
-                    <td>Automática con Pydantic</td>
+                    <td><strong>Dependencias temporales</strong></td>
+                    <td>No captura</td>
+                    <td>Captura a corto y largo plazo</td>
                 </tr>
                 <tr>
-                    <td><strong>Async/Await</strong></td>
-                    <td>Limitado, requiere extensiones</td>
-                    <td>Soporte nativo completo</td>
+                    <td><strong>Complejidad computacional</strong></td>
+                    <td>Baja a media</td>
+                    <td>Alta</td>
                 </tr>
                 <tr>
-                    <td><strong>Curva de Aprendizaje</strong></td>
-                    <td>Suave, ideal para principiantes</td>
-                    <td>Moderada, requiere conocimiento de tipos</td>
+                    <td><strong>Tiempo de entrenamiento</strong></td>
+                    <td>Relativamente rápido</td>
+                    <td>Lento (debido a la recurrencia)</td>
                 </tr>
                 <tr>
-                    <td><strong>Ecosistema</strong></td>
-                    <td>Extenso y maduro</td>
-                    <td>En crecimiento pero robusto</td>
+                    <td><strong>Aplicaciones típicas</strong></td>
+                    <td>Clasificación, regresión, reconocimiento de patrones</td>
+                    <td>Procesamiento de lenguaje, predicción de series temporales</td>
                 </tr>
             </tbody>
         </table>
         
-        <h3>Casos de Uso Recomendados</h3>
-        
         <div class="note">
-            <span class="feature-badge flask-badge">FLASK</span>
-            <strong>Ideal para:</strong> Prototipado rápido, aplicaciones simples, proyectos con requisitos mínimos, equipos con experiencia en Flask.
-        </div>
-        
-        <div class="note">
-            <span class="feature-badge fastapi-badge">FASTAPI</span>
-            <strong>Ideal para:</strong> APIs de alto rendimiento, sistemas en tiempo real, proyectos que requieren documentación automática, aplicaciones con operaciones asíncronas.
+            <strong>Nota:</strong> La elección entre MLP y LSTM depende fundamentalmente de la naturaleza de los datos y el problema a resolver. MLP es adecuado para problemas estáticos, mientras que LSTM es superior para datos secuenciales con dependencias temporales.
         </div>
     </section>
     
-    <section id="arquitectura-ideal">
-        <h2>3. Arquitectura Ideal para IA</h2>
+    <section id="aplicaciones">
+        <h2>5. Aplicaciones Prácticas</h2>
         
-        <div class="architecture-diagram">
-            <div class="architecture-box">Cliente Web/Móvil</div>
-            <div class="arrow">↓</div>
-            <div class="architecture-box">API Gateway<br/><small>(Load Balancer)</small></div>
-            <div class="arrow">↓</div>
-            <div class="architecture-box">Servicio Web<br/><small>(Flask/FastAPI)</small></div>
-            <div class="arrow">↓</div>
-            <div class="architecture-box">Modelo de ML<br/><small>(En memoria/GPU)</small></div>
-        </div>
+        <h3>Aplicaciones de MLP</h3>
+        <ul>
+            <li><strong>Reconocimiento de dígitos manuscritos:</strong> Clasificación de imágenes en categorías discretas</li>
+            <li><strong>Detección de fraudes:</strong> Identificación de transacciones fraudulentas basada en características de la transacción</li>
+            <li><strong>Diagnóstico médico:</strong> Clasificación de enfermedades basada en síntomas y pruebas</li>
+            <li><strong>Sistemas de recomendación:</strong> Predicción de preferencias de usuarios</li>
+        </ul>
         
-        <h3>Componentes Esenciales</h3>
-        
-        <h4>1. Carga y Gestión de Modelos</h4>
-        <p>Los modelos de ML deben cargarse una vez al iniciar la aplicación y reutilizarse para todas las peticiones:</p>
-        <div class="code-block">
-            # Patrón singleton para gestión de modelos<br>
-            class ModelManager:<br>
-            &nbsp;&nbsp;_instance = None<br>
-            &nbsp;&nbsp;_model = None<br><br>
-            
-            &nbsp;&nbsp;def __new__(cls):<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;if cls._instance is None:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cls._instance = super().__new__(cls)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cls._model = load_model('modelo.h5')<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return cls._instance<br><br>
-            
-            &nbsp;&nbsp;def predict(self, data):<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return self._model.predict(data)
-        </div>
-        
-        <h4>2. Procesamiento Asíncrono</h4>
-        <p>Para operaciones de larga duración, implementar colas de procesamiento:</p>
-        <div class="code-block">
-            # Ejemplo con Celery + Redis<br>
-            from celery import Celery<br><br>
-            
-            celery_app = Celery('tasks', broker='redis://localhost:6379')<br><br>
-            
-            @celery_app.task<br>
-            def procesar_prediccion_larga(datos):<br>
-            &nbsp;&nbsp;# Procesamiento intensivo<br>
-            &nbsp;&nbsp;resultado = modelo_pesado.predict(datos)<br>
-            &nbsp;&nbsp;return resultado
-        </div>
-        
-        <h4>3. Caché de Resultados</h4>
-        <p>Implementar caché para predicciones frecuentes:</p>
-        <div class="code-block">
-            from functools import lru_cache<br>
-            import hashlib<br><br>
-            
-            @lru_cache(maxsize=1000)<br>
-            def prediccion_cacheada(datos_serializados):<br>
-            &nbsp;&nbsp;datos = deserializar(datos_serializados)<br>
-            &nbsp;&nbsp;return modelo.predict(datos)<br><br>
-            
-            def hacer_prediccion(datos):<br>
-            &nbsp;&nbsp;clave_cache = hashlib.md5(str(datos).encode()).hexdigest()<br>
-            &nbsp;&nbsp;return prediccion_cacheada(clave_cache)
-        </div>
+        <h3>Aplicaciones de LSTM</h3>
+        <ul>
+            <li><strong>Predicción del mercado bursátil:</strong> Análisis de series temporales financieras</li>
+            <li><strong>Generación de texto:</strong> Creación de texto coherente basado en contexto previo</li>
+            <li><strong>Traducción automática:</strong> Conversión de secuencias de texto entre idiomas</li>
+            <li><strong>Reconocimiento de voz:</strong> Transcripción de audio a texto</li>
+            <li><strong>Predicción del clima:</strong> Análisis de patrones meteorológicos históricos</li>
+        </ul>
     </section>
     
-    <section id="implementacion-flask">
-        <h2>4. Implementación con Flask</h2>
+    <section id="implementacion">
+        <h2>6. Implementación</h2>
         
-        <h3>Estructura Básica para IA</h3>
+        <h3>Implementación de MLP con Keras</h3>
         <div class="code-block">
-            from flask import Flask, request, jsonify<br>
-            from model_manager import ModelManager<br>
-            import numpy as np<br><br>
+            from tensorflow.keras.models import Sequential<br>
+            from tensorflow.keras.layers import Dense<br><br>
             
-            app = Flask(__name__)<br>
-            model_manager = ModelManager()<br><br>
+            # Crear modelo MLP<br>
+            model = Sequential()<br>
+            model.add(Dense(64, activation='relu', input_shape=(input_dim,)))<br>
+            model.add(Dense(32, activation='relu'))<br>
+            model.add(Dense(1, activation='sigmoid'))  # Para clasificación binaria<br><br>
             
-            @app.route('/health', methods=['GET'])<br>
-            def health_check():<br>
-            &nbsp;&nbsp;return jsonify({'status': 'healthy', 'model_loaded': True})<br><br>
+            # Compilar el modelo<br>
+            model.compile(optimizer='adam',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;loss='binary_crossentropy',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;metrics=['accuracy'])<br><br>
             
-            @app.route('/predict', methods=['POST'])<br>
-            def predict():<br>
-            &nbsp;&nbsp;try:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;data = request.get_json()<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;# Validación básica<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;if 'features' not in data:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'error': 'Se requieren features'}), 400<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;features = np.array(data['features'])<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;prediction = model_manager.predict(features)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prediction': prediction.tolist(),<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'status': 'success'<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;})<br>
-            &nbsp;&nbsp;except Exception as e:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return jsonify({'error': str(e)}), 500<br><br>
-            
-            if __name__ == '__main__':<br>
-            &nbsp;&nbsp;app.run(host='0.0.0.0', port=5000, threaded=True)
+            # Entrenar el modelo<br>
+            history = model.fit(X_train, y_train,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;epochs=50,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;batch_size=32,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validation_data=(X_val, y_val))
         </div>
         
-        <h3>Optimizaciones para Flask</h3>
-        
+        <h3>Implementación de LSTM con Keras</h3>
         <div class="code-block">
-            # 1. Usar Gunicorn para producción<br>
-            # gunicorn -w 4 -b 0.0.0.0:5000 app:app<br><br>
+            from tensorflow.keras.models import Sequential<br>
+            from tensorflow.keras.layers import LSTM, Dense<br><br>
             
-            # 2. Configuración de caché<br>
-            from flask_caching import Cache<br><br>
+            # Crear modelo LSTM<br>
+            model = Sequential()<br>
+            model.add(LSTM(50, return_sequences=True, input_shape=(timesteps, features)))<br>
+            model.add(LSTM(50, return_sequences=False))<br>
+            model.add(Dense(25))<br>
+            model.add(Dense(1))  # Para predicción de una salida<br><br>
             
-            cache = Cache(config={'CACHE_TYPE': 'SimpleCache'})<br>
-            cache.init_app(app)<br><br>
+            # Compilar el modelo<br>
+            model.compile(optimizer='adam', loss='mse')<br><br>
             
-            @app.route('/predict')<br>
-            @cache.cached(timeout=60, query_string=True)<br>
-            def predict_cached():<br>
-            &nbsp;&nbsp;# ... lógica de predicción
-        </div>
-        
-        <div class="warning">
-            <strong>Limitación:</strong> Flask procesa las peticiones de forma síncrona por defecto. Para alto rendimiento, es necesario usar workers múltiples con Gunicorn u otro WSGI server.
-        </div>
-    </section>
-    
-    <section id="implementacion-fastapi">
-        <h2>5. Implementación con FastAPI</h2>
-        
-        <h3>Estructura con Tipado y Validación</h3>
-        <div class="code-block">
-            from fastapi import FastAPI, HTTPException<br>
-            from pydantic import BaseModel, conlist<br>
-            from typing import List<br>
-            import numpy as np<br>
-            from model_manager import ModelManager<br><br>
-            
-            app = FastAPI(<br>
-            &nbsp;&nbsp;title="API de Machine Learning",<br>
-            &nbsp;&nbsp;description="API para predicciones con modelos de ML",<br>
-            &nbsp;&nbsp;version="1.0.0"<br>
-            )<br><br>
-            
-            model_manager = ModelManager()<br><br>
-            
-            # Esquemas Pydantic para validación<br>
-            class PredictionRequest(BaseModel):<br>
-            &nbsp;&nbsp;features: conlist(float, min_items=1)<br>
-            &nbsp;&nbsp;model_version: str = "latest"<br><br>
-            
-            class PredictionResponse(BaseModel):<br>
-            &nbsp;&nbsp;prediction: List[float]<br>
-            &nbsp;&nbsp;confidence: float<br>
-            &nbsp;&nbsp;model_version: str<br>
-            &nbsp;&nbsp;processing_time: float<br><br>
-            
-            @app.get("/health")<br>
-            async def health_check():<br>
-            &nbsp;&nbsp;return {"status": "healthy", "model_loaded": True}<br><br>
-            
-            @app.post("/predict", response_model=PredictionResponse)<br>
-            async def predict(request: PredictionRequest):<br>
-            &nbsp;&nbsp;try:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;start_time = time.time()<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;features = np.array([request.features])<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;prediction = model_manager.predict(features)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;confidence = float(np.max(prediction))<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;processing_time = time.time() - start_time<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return PredictionResponse(<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prediction=prediction.tolist(),<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;confidence=confidence,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;model_version=request.model_version,<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processing_time=processing_time<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;)<br>
-            &nbsp;&nbsp;except Exception as e:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;raise HTTPException(status_code=500, detail=str(e))<br><br>
-            
-            # Endpoint asíncrono para procesamiento en lote<br>
-            @app.post("/batch-predict")<br>
-            async def batch_predict(requests: List[PredictionRequest]):<br>
-            &nbsp;&nbsp;# Procesamiento paralelo<br>
-            &nbsp;&nbsp;results = await process_batch_async(requests)<br>
-            &nbsp;&nbsp;return {"predictions": results}
-        </div>
-        
-        <h3>Ventajas de FastAPI para IA</h3>
-        
-        <div class="code-block">
-            # 1. Soporte nativo para async/await<br>
-            async def load_model_async(model_path: str):<br>
-            &nbsp;&nbsp;# Carga asíncrona de modelo pesado<br>
-            &nbsp;&nbsp;model = await asyncio.to_thread(load_heavy_model, model_path)<br>
-            &nbsp;&nbsp;return model<br><br>
-            
-            # 2. Background tasks para post-procesamiento<br>
-            from fastapi import BackgroundTasks<br><br>
-            
-            def log_prediction(prediction_data: dict):<br>
-            &nbsp;&nbsp;# Guardar en base de datos o enviar a analytics<br>
-            &nbsp;&nbsp;pass<br><br>
-            
-            @app.post("/predict-with-logging")<br>
-            async def predict_with_logging(<br>
-            &nbsp;&nbsp;request: PredictionRequest,<br>
-            &nbsp;&nbsp;background_tasks: BackgroundTasks<br>
-            &nbsp;&nbsp;):<br>
-            &nbsp;&nbsp;prediction = await make_prediction(request)<br>
-            &nbsp;&nbsp;background_tasks.add_task(log_prediction, prediction)<br>
-            &nbsp;&nbsp;return prediction
+            # Entrenar el modelo<br>
+            history = model.fit(X_train, y_train,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;epochs=100,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;batch_size=32,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;validation_data=(X_val, y_val))
         </div>
         
         <div class="note">
-            <strong>Beneficio:</strong> FastAPI genera automáticamente documentación interactiva en /docs y /redoc, lo que facilita enormemente las pruebas y el consumo de la API.
-        </div>
-    </section>
-    
-    <section id="patrones-comunicacion">
-        <h2>6. Patrones de Comunicación para IA</h2>
-        
-        <h3>1. Comunicación Síncrona vs Asíncrona</h3>
-        
-        <div class="code-block">
-            # Síncrona - Para respuestas inmediatas<br>
-            @app.post("/realtime-predict")<br>
-            def realtime_predict(data: PredictionRequest):<br>
-            &nbsp;&nbsp;# Procesamiento inmediato<br>
-            &nbsp;&nbsp;result = model.predict(data.features)<br>
-            &nbsp;&nbsp;return {"prediction": result}<br><br>
-            
-            # Asíncrona - Para procesamiento largo<br>
-            @app.post("/async-predict")<br>
-            async def async_predict(data: PredictionRequest):<br>
-            &nbsp;&nbsp;# Delegar a worker asíncrono<br>
-            &nbsp;&nbsp;task_id = celery.send_task('process_prediction', args=[data.dict()])<br>
-            &nbsp;&nbsp;return {"task_id": task_id, "status": "processing"}<br><br>
-            
-            @app.get("/result/{task_id}")<br>
-            async def get_result(task_id: str):<br>
-            &nbsp;&nbsp;result = AsyncResult(task_id)<br>
-            &nbsp;&nbsp;if result.ready():<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return {"status": "completed", "result": result.get()}<br>
-            &nbsp;&nbsp;else:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return {"status": "processing"}
-        </div>
-        
-        <h3>2. Patrón de Circuit Breaker</h3>
-        <p>Para prevenir fallos en cascada cuando el modelo está sobrecargado:</p>
-        
-        <div class="code-block">
-            from circuitbreaker import circuit<br><br>
-            
-            @circuit(failure_threshold=5, expected_exception=Exception)<br>
-            def safe_prediction(features):<br>
-            &nbsp;&nbsp;# Si falla 5 veces, se abre el circuito<br>
-            &nbsp;&nbsp;return model.predict(features)<br><br>
-            
-            @app.post("/safe-predict")<br>
-            def safe_predict_endpoint(data: PredictionRequest):<br>
-            &nbsp;&nbsp;try:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;result = safe_prediction(data.features)<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return {"prediction": result}<br>
-            &nbsp;&nbsp;except CircuitBreakerError:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;return {"error": "Servicio temporalmente no disponible"}, 503
-        </div>
-        
-        <h3>3. Rate Limiting</h3>
-        <p>Controlar el número de peticiones por usuario/timeframe:</p>
-        
-        <div class="code-block">
-            from slowapi import Limiter, _rate_limit_exceeded_handler<br>
-            from slowapi.util import get_remote_address<br>
-            from slowapi.errors import RateLimitExceeded<br><br>
-            
-            limiter = Limiter(key_func=get_remote_address)<br>
-            app.state.limiter = limiter<br>
-            app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)<br><br>
-            
-            @app.post("/predict")<br>
-            @limiter.limit("5/minute")<br>
-            def predict_with_rate_limit(data: PredictionRequest):<br>
-            &nbsp;&nbsp;return make_prediction(data)
+            <strong>Nota:</strong> Para problemas complejos, es recomendable utilizar técnicas de regularización como Dropout y Early Stopping para evitar el sobreajuste, especialmente en redes profundas.
         </div>
     </section>
     
     <section id="conclusion">
         <h2>7. Conclusión</h2>
-        
-        <h3>Recomendaciones Finales</h3>
-        
-        <div class="note">
-            <span class="feature-badge flask-badge">FLASK</span>
-            <strong>Elige Flask cuando:</strong>
-            <ul>
-                <li>Tienes un equipo familiarizado con Flask</li>
-                <li>El proyecto es simple o un prototipo</li>
-                <li>No necesitas alto rendimiento asíncrono</li>
-                <li>Prefieres flexibilidad sobre convención</li>
-            </ul>
-        </div>
-        
-        <div class="note">
-            <span class="feature-badge fastapi-badge">FASTAPI</span>
-            <strong>Elige FastAPI cuando:</strong>
-            <ul>
-                <li>Requieres máximo rendimiento</li>
-                <li>Necesitas documentación automática</li>
-                <li>Trabajas con operaciones asíncronas</li>
-                <li>Quieres validación automática de datos</li>
-                <li>Desarrollas APIs complejas con múltiples endpoints</li>
-            </ul>
-        </div>
-        
-        <h3>Mejores Prácticas Comunes</h3>
-        <ul>
-            <li><strong>Health Checks:</strong> Implementar endpoints /health para monitoreo</li>
-            <li><strong>Logging:</strong> Registrar todas las predicciones para debugging y analytics</li>
-            <li><strong>Versionado:</strong> Mantener múltiples versiones de modelos</li>
-            <li><strong>Monitorización:</strong> Implementar métricas de rendimiento y uso</li>
-            <li><strong>Seguridad:</strong> Validar entradas, implementar autenticación y rate limiting</li>
-        </ul>
-        
-        <p>La comunicación ideal en IA depende del balance entre rendimiento, complejidad y requisitos específicos del proyecto. Tanto Flask como FastAPI son opciones válidas, pero FastAPI ofrece ventajas significativas para aplicaciones modernas de machine learning en producción.</p>
+        <p>Las redes neuronales MLP y LSTM representan dos enfoques fundamentales en el aprendizaje profundo, cada una con sus fortalezas y aplicaciones específicas. Las MLP son ideales para problemas estáticos donde las entradas son independientes y no presentan dependencias temporales, mientras que las LSTM sobresalen en el procesamiento de datos secuenciales donde el contexto y las dependencias temporales son cruciales.</p>
+        <p>La elección entre estas arquitecturas debe basarse en una comprensión profunda del problema a resolver y la naturaleza de los datos disponibles. En muchos casos del mundo real, se utilizan arquitecturas híbridas que combinan elementos de ambas para aprovechar sus ventajas respectivas.</p>
+        <p>El continuo desarrollo en el campo de las redes neuronales promete arquitecturas aún más avanzadas, pero MLP y LSTM seguirán siendo componentes fundamentales en el arsenal de cualquier practicante de inteligencia artificial.</p>
     </section>
     
     <div class="volver-indice">
@@ -640,7 +407,7 @@
     </div>
     
     <footer>
-        <p>Informe sobre Comunicación Ideal con Flask y FastAPI para IA - Jonathan Blanco</p>
+        <p>Informe sobre Redes Neuronales MLP y LSTM - Jonathan Blanco</p>
     </footer>
 </body>
 </html>
